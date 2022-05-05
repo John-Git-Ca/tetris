@@ -1,0 +1,21 @@
+.controls {
+  margin-top: 5px;
+  grid-area: l;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: center;
+}
+
+.control-button {
+  --size: calc(var(--tile-size) * 2.5);
+  width: var(--size);
+  height: var(--size);
+  text-align: center;
+  display: block;
+  border-width: 5px;
+  border-top-color: var(--button-color-t);
+  border-left-color: var(--button-color-l);
+  border-right-color: var(--button-color-r);
+  border-bottom-color: var(--button-color-b);
+}

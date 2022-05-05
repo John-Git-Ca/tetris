@@ -1,0 +1,14 @@
+.message-popup {
+  position: absolute;
+  /* left: 50%; */
+  top: 40%;
+  /* transform: translate(-50%, -50%); */
+  width: calc(var(--tile-size) * 10);
+  height: calc(var(--tile-size) * 18);
+  color: var(--color-1);
+  /* background-color: rgba(14, 9, 9, 0.5); */
+  text-align: center;
+}
+.message-popup.hidden {
+  display: none;
+}
