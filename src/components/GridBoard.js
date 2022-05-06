@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import GridSquare from './GridSquare';
 import { useDispatch, useSelector } from 'react-redux';
 import { shapes } from '../utils/utils';
@@ -13,7 +13,7 @@ const GridBoard = () => {
   const progressTimeRef = useRef(0);
   const dispatch = useDispatch();
 
-  const { grid, shape, rotation, x, y, isRunning, speed, score } = game;
+  const { grid, shape, rotation, x, y, isRunning, speed } = game;
 
   const block = shapes[shape][rotation];
   const blockColor = shape;
@@ -45,10 +45,7 @@ const GridBoard = () => {
     }
     const deltaTime = time - lastUpdateTimeRef.current;
     progressTimeRef.current += deltaTime;
-    if (
-      progressTimeRef.current >
-      speed / Math.max(1, Math.round(score / 2000))
-    ) {
+    if (progressTimeRef.current > speed) {
       dispatch(moveDown());
       progressTimeRef.current = 0;
     }

@@ -6,12 +6,6 @@ import Control from './Control';
 
 const NextBlock = () => {
   const nextShape = useSelector((state) => state.gameReducer.nextShape);
-  // const box = [
-  //   [0, 0, 0, 0],
-  //   [0, 0, 0, 0],
-  //   [0, 0, 0, 0],
-  //   [0, 0, 0, 0],
-  // ];
 
   const box = shapes[nextShape][0];
 

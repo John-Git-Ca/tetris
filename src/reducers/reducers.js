@@ -1,4 +1,4 @@
-import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import {
   addBlockToGrid,
   canMoveTo,
@@ -27,24 +27,21 @@ const gameSlice = createSlice({
   initialState: initialState(),
   reducers: {
     moveRight: (state) => {
-      const { shape, grid, x, y, rotation, nextShape, score, isRunning } =
-        state;
+      const { shape, grid, x, y, rotation } = state;
       if (canMoveTo(shape, grid, x + 1, y, rotation)) {
         return { ...state, x: x + 1 };
       }
       return state;
     },
     moveLeft: (state) => {
-      const { shape, grid, x, y, rotation, nextShape, score, isRunning } =
-        state;
+      const { shape, grid, x, y, rotation } = state;
       if (canMoveTo(shape, grid, x - 1, y, rotation)) {
         return { ...state, x: x - 1 };
       }
       return state;
     },
     rotate: (state) => {
-      const { shape, grid, x, y, rotation, nextShape, score, isRunning } =
-        state;
+      const { shape, grid, x, y, rotation } = state;
       const newRotation = nextRotation(shape, rotation);
       if (canMoveTo(shape, grid, x, y, newRotation)) {
         return { ...state, rotation: newRotation };
@@ -52,8 +49,7 @@ const gameSlice = createSlice({
       return state;
     },
     moveDown: (state) => {
-      const { shape, grid, x, y, rotation, nextShape, score, isRunning } =
-        state;
+      const { shape, grid, x, y, rotation, nextShape, score } = state;
       const maybeY = y + 1;
       if (canMoveTo(shape, grid, x, maybeY, rotation)) {
         return { ...state, y: maybeY };
@@ -74,16 +70,17 @@ const gameSlice = createSlice({
       state.y = -4;
       state.nextShape = randomShapes();
       state.score = score + checkRows(newGrid);
+      state.speed = 1000 / Math.max(1, Math.round(score / 2000));
 
       return state;
     },
-    pause: (state, action) => {
+    pause: (state) => {
       return { ...state, isRunning: false };
     },
-    resume: (state, action) => {
+    resume: (state) => {
       return { ...state, isRunning: true };
     },
-    restart: (state, action) => {
+    restart: (state) => {
       return initialState();
     },
   },
