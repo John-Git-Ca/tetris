@@ -6,13 +6,12 @@ import { moveDown } from '../reducers/reducers';
 import MessagePopup from './MessagePopup';
 
 const GridBoard = () => {
-  const game = useSelector((state) => state.gameReducer);
-
   const requestRef = useRef();
   const lastUpdateTimeRef = useRef(0);
   const progressTimeRef = useRef(0);
   const dispatch = useDispatch();
 
+  const game = useSelector((state) => state.gameReducer);
   const { grid, shape, rotation, x, y, isRunning, speed } = game;
 
   const block = shapes[shape][rotation];
@@ -55,7 +54,7 @@ const GridBoard = () => {
   useEffect(() => {
     requestRef.current = requestAnimationFrame(update);
     return () => cancelAnimationFrame(requestRef.current);
-  }, [isRunning]);
+  }, [isRunning, speed]);
 
   return (
     <div className="grid-board">

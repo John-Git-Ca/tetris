@@ -71,10 +71,10 @@ const gameSlice = createSlice({
       state.nextShape = randomShapes();
       state.score = score + checkRows(newGrid);
       state.speed = 1000 / Math.max(1, Math.round(score / 2000));
-
       return state;
     },
     pause: (state) => {
+      console.log(state.speed);
       return { ...state, isRunning: false };
     },
     resume: (state) => {
