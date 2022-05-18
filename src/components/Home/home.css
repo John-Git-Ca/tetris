@@ -1,0 +1,7 @@
+.gamecard {
+  max-width: 300px;
+}
+
+.gamecard:hover {
+  transform: scale(1.05);
+}

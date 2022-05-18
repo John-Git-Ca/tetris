@@ -55,6 +55,7 @@ const gameSlice = createSlice({
         return { ...state, y: maybeY };
       }
       const obj = addBlockToGrid(shape, grid, x, y, rotation);
+      console.log('add');
       const newGrid = obj.grid;
       const gameOver = obj.gameOver;
 

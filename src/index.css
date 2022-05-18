@@ -141,6 +141,7 @@ button:hover {
     'h h h'
     'l c r'
     '. b .';
+  max-height: 450px;
 }
 /* App-header */
 .App-header {
