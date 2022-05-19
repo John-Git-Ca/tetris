@@ -7,6 +7,7 @@
   border: 1px solid black;
   border-bottom: none;
   position: relative;
+  overflow: hidden;
 }
 .groundarea {
   background-image: url('../../images/bottom-background.png');
@@ -28,10 +29,17 @@
 .topobstacle {
   background-image: url('../../images/flappybird-pipe.png');
   background-size: cover;
-  width: 50px;
+  width: 40px;
   height: 250px;
-  position: relative;
+  position: absolute;
   transform: rotate(180deg);
+}
+.bottomobstacle {
+  background-image: url('../../images/flappybird-pipe.png');
+  background-size: cover;
+  width: 40px;
+  height: 250px;
+  position: absolute;
 }
 
 .stopbtn {
@@ -41,6 +49,7 @@
   margin-top: 0px;
   font-size: 1.5rem;
   text-shadow: #fc0 0 0 10px;
+  z-index: 999;
 }
 .score {
   display: inline;

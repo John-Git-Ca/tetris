@@ -28,14 +28,14 @@ const gameSlice = createSlice({
   reducers: {
     moveRight: (state) => {
       const { shape, grid, x, y, rotation } = state;
-      if (canMoveTo(shape, grid, x + 1, y, rotation)) {
+      if (y >= -1 && canMoveTo(shape, grid, x + 1, y, rotation)) {
         return { ...state, x: x + 1 };
       }
       return state;
     },
     moveLeft: (state) => {
       const { shape, grid, x, y, rotation } = state;
-      if (canMoveTo(shape, grid, x - 1, y, rotation)) {
+      if (y >= -1 && canMoveTo(shape, grid, x - 1, y, rotation)) {
         return { ...state, x: x - 1 };
       }
       return state;
